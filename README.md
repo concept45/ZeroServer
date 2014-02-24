@@ -1,10 +1,8 @@
-# C(ontinued)-MaNGOS -- README  ![Build status](https://api.travis-ci.org/eluna-dev-mangos/ElunaCoreClassic.png)
+# ![logo](http://www.imgbox.de/users/public/images/FCVDJWsmbn.png) ![Build status](https://api.travis-ci.org/CoronaCore/ZeroServer.png)
 
-This file is part of the CMaNGOS Project. See [AUTHORS](AUTHORS.md) file for Copyright information
+## Welcome to CoronaCore
 
-## Welcome to C(ontinued)-MaNGOS
-
-C(ontinued)-MaNGOS is a free project with the following goal:
+CoronaCore is a free project with the following goal:
 
   **Doing WoW-Emulation Right!**
 
@@ -45,18 +43,16 @@ To be able to accomplish these goals, we support and promote:
   * We only argue about content, and not about thin air!
   * We follow the [Netiquette](http://tools.ietf.org/html/rfc1855).
 
--- The C(ontinued)-MaNGOS Team!
+-- The CoronaCore Team!
 
 ## Further information
 
-  You can find further information about CMaNGOS at the following places:
-  * [CMaNGOS Forum](http://cmangos.net/)
-  * CMaNGOS IRC channel: #cmangos on irc.rizon.net
-  * [GitHub repositories](https://github.com/cmangos/)
-  * [Issue tracker](https://github.com/cmangos/issues/issues)
-  * [Pull Requests](https://github.com/cmangos/mangos-tbc/pulls)
-  * [Current build status on Travis CI](https://travis-ci.org/cmangos/mangos-tbc/)
-  * [Wiki](https://github.com/cmangos/issues/wiki) with additional information on installation
+  You can find further information about CoronaCore at the following places:
+  * [GitHub repositories](https://github.com/CoronaCore/)
+  * [Issue tracker](https://github.com/CoronaCore/Issues/issues)
+  * [Pull Requests](https://github.com/CoronaCore/ZeroServer/pulls)
+  * [Current build status on Travis CI](https://travis-ci.org/CoronaCore/ZeroServer/)
+  * [Wiki](https://github.com/CoronaCore/Issues/wiki) with additional information on installation
   * [Contributing Guidelines](CONTRIBUTING.md)
   * Documentation can be found in the doc/ subdirectory and on the github wiki
 
@@ -68,7 +64,7 @@ To be able to accomplish these goals, we support and promote:
 
 ## License
 
-  CMaNGOS is free software; you can redistribute it and/or modify
+  CoronaCore is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
@@ -87,10 +83,10 @@ To be able to accomplish these goals, we support and promote:
 
 ### Exceptions to GPL
 
-  Some third-party libraries CMaNGOS uses have other licenses, that must be
+  Some third-party libraries CoronaCore uses have other licenses, that must be
   uphold.  These libraries are located within the dep/ directory
 
-  In addition, as a special exception, the CMaNGOS project
+  In addition, as a special exception, the CoronaCore project
   gives permission to link the code of its release of MaNGOS with the
   OpenSSL project's "OpenSSL" library (or with modified versions of it
   that use the same license as the "OpenSSL" library), and distribute
@@ -101,5 +97,4 @@ To be able to accomplish these goals, we support and promote:
   so, delete this exception statement from your version.
 
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/eluna-dev-mangos/elunacoreclassic/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/CoronaCore/ZeroServer/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
