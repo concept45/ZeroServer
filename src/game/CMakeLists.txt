@@ -37,6 +37,34 @@ include_directories(
   ${ACE_INCLUDE_DIR}
 )
 
+set(SRC_GRP_PLAYERBOT
+	playerbot/config.h
+	playerbot/PlayerbotAI.cpp
+	playerbot/PlayerbotAI.h
+	playerbot/PlayerbotClassAI.cpp
+	playerbot/PlayerbotClassAI.h
+	playerbot/PlayerbotDruidAI.cpp
+	playerbot/PlayerbotDruidAI.h
+	playerbot/PlayerbotHunterAI.cpp
+	playerbot/PlayerbotHunterAI.h
+	playerbot/PlayerbotMageAI.cpp
+	playerbot/PlayerbotMageAI.h
+	playerbot/PlayerbotMgr.cpp
+	playerbot/PlayerbotMgr.h
+	playerbot/PlayerbotPaladinAI.cpp
+	playerbot/PlayerbotPaladinAI.h
+	playerbot/PlayerbotPriestAI.cpp
+	playerbot/PlayerbotPriestAI.h
+	playerbot/PlayerbotRogueAI.cpp
+	playerbot/PlayerbotRogueAI.h
+	playerbot/PlayerbotShamanAI.cpp
+	playerbot/PlayerbotShamanAI.h
+	playerbot/PlayerbotWarlockAI.cpp
+	playerbot/PlayerbotWarlockAI.h
+	playerbot/PlayerbotWarriorAI.cpp
+	playerbot/PlayerbotWarriorAI.h
+)
+
 set(SRC_GRP_AHBOT
     AuctionHouseBot/AuctionHouseBot.cpp
     AuctionHouseBot/AuctionHouseBot.h
@@ -393,6 +421,7 @@ set(SRC_GRP_WORLD_HANDLERS
 )
 
 set(LIBRARY_SRCS
+    ${SRC_GRP_PLAYERBOT}
     ${SRC_GRP_AHBOT}
     ${SRC_GRP_BATTLEGROUND}
     ${SRC_GRP_LUAENGINE}
@@ -408,6 +437,11 @@ set(LIBRARY_SRCS
     ${SRC_GRP_WORLD_HANDLERS}
     pchdef.cpp
     pchdef.h
+)
+
+source_group("PlayerBot"
+  FILES
+    ${SRC_GRP_PLAYERBOT}
 )
 
 source_group("AhBot"
@@ -518,3 +552,5 @@ if(PCH)
     endif()
   endif()
 endif()
+
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/playerbot/playerbot.conf.dist.in DESTINATION ${CONF_DIR} RENAME playerbot.conf.dist)
