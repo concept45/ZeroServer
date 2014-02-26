@@ -38,7 +38,7 @@ float ThreatCalcHelper::CalcThreat(Unit* pHatedUnit, Unit* /*pHatingUnit*/, floa
 
     if (pThreatSpell)
     {
-        if (pThreatSpell->HasAttribute(SPELL_ATTR_EX_NO_THREAT))
+        if (pThreatSpell->HasAttribute(SPELL_ATTR_EX_NO_THREAT) && !(pThreatSpell->SpellFamilyName == SPELLFAMILY_PRIEST && pThreatSpell->SpellFamilyFlags & UI64LIT(0x0000000000004000)))
             return 0.0f;
 
         if (Player* modOwner = pHatedUnit->GetSpellModOwner())
