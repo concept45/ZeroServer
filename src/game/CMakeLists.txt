@@ -337,6 +337,8 @@ set(SRC_GRP_WORLD_HANDLERS
     InstanceData.cpp
     InstanceData.h
     ItemHandler.cpp
+    LFGHandler.cpp
+    LFGHandler.h
     LootHandler.cpp
     Mail.cpp
     Mail.h
