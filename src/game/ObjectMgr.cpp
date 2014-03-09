@@ -6940,7 +6940,6 @@ bool PlayerCondition::Meets(Player const* player, Map const* map, WorldObject co
         case CONDITION_RESERVED_1:
         case CONDITION_RESERVED_2:
         case CONDITION_RESERVED_3:
-        case CONDITION_RESERVED_4:
             return false;
         case CONDITION_QUEST_NONE:
         {
@@ -7044,6 +7043,15 @@ bool PlayerCondition::Meets(Player const* player, Map const* map, WorldObject co
                 case 0: return m_value1 == lastReachedWp;
                 case 1: return m_value1 <= lastReachedWp;
                 case 2: return m_value1 > lastReachedWp;
+            }
+            return false;
+        }
+        case CONDITION_XP_USER:
+        {
+            switch (m_value1)
+            {
+                case 0: return player->HasFlag(PLAYER_FLAGS, PLAYER_FLAGS_XP_USER_DISABLED);
+                case 1: return !player->HasFlag(PLAYER_FLAGS, PLAYER_FLAGS_XP_USER_DISABLED);
             }
             return false;
         }
@@ -7426,7 +7434,6 @@ bool PlayerCondition::IsValid(uint16 entry, ConditionType condition, uint32 valu
         case CONDITION_RESERVED_1:
         case CONDITION_RESERVED_2:
         case CONDITION_RESERVED_3:
-        case CONDITION_RESERVED_4:
         {
             sLog.outErrorDb("Condition (%u) reserved for later versions, skipped", condition);
             return false;
@@ -7464,6 +7471,19 @@ bool PlayerCondition::IsValid(uint16 entry, ConditionType condition, uint32 valu
                 sLog.outErrorDb("Last Waypoint condition (entry %u, type %u) has an invalid value in value2. (Has %u, supported 0, 1, or 2), skipping.", entry, condition, value2);
                 return false;
             }
+            break;
+        }
+        case CONDITION_XP_USER:
+        {
+            if (value1 > 1)
+            {
+                sLog.outErrorDb("XP user condition (entry %u, type %u) has invalid argument %u (must be 0..1), skipped", entry, condition, value1);
+                return false;
+            }
+
+            if (value2)
+                sLog.outErrorDb("XP user condition (entry %u, type %u) has useless data in value2 (%u)!", entry, condition, value2);
+
             break;
         }
         case CONDITION_GENDER:
