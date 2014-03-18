@@ -2170,10 +2170,10 @@ void Spell::EffectSummon(SpellEffectIndex eff_idx)
     if (m_originalCaster && m_originalCaster != m_caster && m_originalCaster->GetTypeId() == TYPEID_UNIT && ((Creature*)m_originalCaster)->AI())
         ((Creature*)m_originalCaster)->AI()->JustSummoned((Creature*)spawnCreature);
     if (Unit* summoner = m_caster->ToUnit())
-        sHookMgr.OnSummoned(spawnCreature, summoner);
+        sHookMgr->OnSummoned(spawnCreature, summoner);
     else if (m_originalCaster)
         if (Unit* summoner = m_originalCaster->ToUnit())
-            sHookMgr.OnSummoned(spawnCreature, summoner);
+            sHookMgr->OnSummoned(spawnCreature, summoner);
 }
 
 void Spell::EffectLearnSpell(SpellEffectIndex eff_idx)
@@ -2503,7 +2503,7 @@ void Spell::EffectSummonWild(SpellEffectIndex eff_idx)
                 ((Creature*)m_originalCaster)->AI()->JustSummoned(summon);
             if (m_originalCaster)
                 if (Unit* summoner = m_originalCaster->ToUnit())
-                    sHookMgr.OnSummoned(summon, summoner);
+                    sHookMgr->OnSummoned(summon, summoner);
         }
     }
 }
@@ -2617,10 +2617,10 @@ void Spell::EffectSummonGuardian(SpellEffectIndex eff_idx)
         if (m_originalCaster && m_originalCaster != m_caster && m_originalCaster->GetTypeId() == TYPEID_UNIT && ((Creature*)m_originalCaster)->AI())
             ((Creature*)m_originalCaster)->AI()->JustSummoned(spawnCreature);
         if (Unit* summoner = m_caster->ToUnit())
-            sHookMgr.OnSummoned(spawnCreature, summoner);
+            sHookMgr->OnSummoned(spawnCreature, summoner);
         if (m_originalCaster)
             if (Unit* summoner = m_originalCaster->ToUnit())
-                sHookMgr.OnSummoned(spawnCreature, summoner);
+                sHookMgr->OnSummoned(spawnCreature, summoner);
     }
 }
 
@@ -3841,7 +3841,7 @@ void Spell::EffectDuel(SpellEffectIndex eff_idx)
     target->SetGuidValue(PLAYER_DUEL_ARBITER, pGameObj->GetObjectGuid());
 
     // used by eluna
-    sHookMgr.OnDuelRequest(target, caster);
+    sHookMgr->OnDuelRequest(target, caster);
 }
 
 void Spell::EffectStuck(SpellEffectIndex /*eff_idx*/)
@@ -4111,7 +4111,7 @@ void Spell::EffectSummonPossessed(SpellEffectIndex eff_idx)
     if (m_originalCaster && m_originalCaster != m_caster && m_originalCaster->GetTypeId() == TYPEID_UNIT && ((Creature*)m_originalCaster)->AI())
         ((Creature*)m_originalCaster)->AI()->JustSummoned(spawnCreature);
     if (Unit* summoner = m_originalCaster->ToUnit())
-        sHookMgr.OnSummoned(spawnCreature, summoner);
+        sHookMgr->OnSummoned(spawnCreature, summoner);
 }
 
 void Spell::EffectEnchantHeldItem(SpellEffectIndex eff_idx)
@@ -4560,10 +4560,10 @@ void Spell::EffectSummonCritter(SpellEffectIndex eff_idx)
     if (m_originalCaster && m_originalCaster != m_caster && m_originalCaster->GetTypeId() == TYPEID_UNIT && ((Creature*)m_originalCaster)->AI())
         ((Creature*)m_originalCaster)->AI()->JustSummoned(critter);
     if (Unit* summoner = m_caster->ToUnit())
-        sHookMgr.OnSummoned(critter, summoner);
+        sHookMgr->OnSummoned(critter, summoner);
     if (m_originalCaster)
         if (Unit* summoner = m_originalCaster->ToUnit())
-            sHookMgr.OnSummoned(critter, summoner);
+            sHookMgr->OnSummoned(critter, summoner);
 }
 
 void Spell::EffectKnockBack(SpellEffectIndex eff_idx)
