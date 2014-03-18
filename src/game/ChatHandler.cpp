@@ -217,14 +217,14 @@ void WorldSession::HandleMessagechatOpcode(WorldPacket& recv_data)
                 }
             }
 
-             // Playerbot mod: handle whispered command to bot
-             if (player->GetPlayerbotAI())
-             {
-                 player->GetPlayerbotAI()->HandleCommand(msg, *GetPlayer());
-                 GetPlayer()->m_speakTime = 0;
-                 GetPlayer()->m_speakCount = 0;
-             }
-             else
+            // Playerbot mod: handle whispered command to bot
+            if (player->GetPlayerbotAI())
+            {
+                player->GetPlayerbotAI()->HandleCommand(msg, *GetPlayer());
+                GetPlayer()->m_speakTime = 0;
+                GetPlayer()->m_speakCount = 0;
+            }
+            else
                 // used by eluna
                 sHookMgr->OnChat(GetPlayer(), type, lang, msg, player);
                 GetPlayer()->Whisper(msg, lang, player->GetObjectGuid());
