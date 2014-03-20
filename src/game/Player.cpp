@@ -2391,12 +2391,7 @@ void Player::InitStatsForLevel(bool reapplyMods)
 
     // reset size before reapply auras
     if (getRace() == RACE_TAUREN)
-    {
-        if (getGender() == GENDER_MALE)
-            SetObjectScale(DEFAULT_TAUREN_MALE_SCALE);
-        else
-            SetObjectScale(DEFAULT_TAUREN_FEMALE_SCALE);
-    }
+        SetObjectScale(1.35f);
     else
         SetObjectScale(DEFAULT_OBJECT_SCALE);
 
