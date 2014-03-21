@@ -895,10 +895,27 @@ void Channel::MakeThrottled(WorldPacket* data)
 
 void Channel::JoinNotify(ObjectGuid guid)
 {
-    // [-ZERO] Feature doesn't exist in 1.x.
+    WorldPacket data;
+
+    if (IsConstant())
+        data.Initialize(SMSG_USERLIST_ADD, 8 + 1 + 1 + 4 + GetName().size() + 1);
+    else
+        data.Initialize(SMSG_USERLIST_UPDATE, 8 + 1 + 1 + 4 + GetName().size() + 1);
+
+    data << ObjectGuid(guid);
+    data << uint8(GetPlayerFlags(guid));
+    data << uint8(GetFlags());
+    data << uint32(GetNumPlayers());
+    data << GetName();
+    SendToAll(&data);
 }
 
 void Channel::LeaveNotify(ObjectGuid guid)
 {
-    // [-ZERO] Feature doesn't exist in 1.x.
+    WorldPacket data(SMSG_USERLIST_REMOVE, 8 + 1 + 4 + GetName().size() + 1);
+    data << ObjectGuid(guid);
+    data << uint8(GetFlags());
+    data << uint32(GetNumPlayers());
+    data << GetName();
+    SendToAll(&data);
 }

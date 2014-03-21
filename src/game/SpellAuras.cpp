@@ -5535,6 +5535,14 @@ void SpellAuraHolder::UpdateAuraDuration()
         data << uint8(GetAuraSlot());
         data << uint32(GetAuraDuration());
         ((Player*)m_target)->SendDirectMessage(&data);
+
+        data.Initialize(SMSG_SET_EXTRA_AURA_INFO, (8 + 1 + 4 + 4 + 4));
+        data << m_target->GetPackGUID();
+        data << uint8(GetAuraSlot());
+        data << uint32(GetId());
+        data << uint32(GetAuraMaxDuration());
+        data << uint32(GetAuraDuration());
+        ((Player*)m_target)->SendDirectMessage(&data);
     }
 
     // not send in case player loading (will not work anyway until player not added to map), sent in visibility change code
@@ -5549,5 +5557,11 @@ void SpellAuraHolder::UpdateAuraDuration()
 
 void SpellAuraHolder::SendAuraDurationForCaster(Player* caster)
 {
-    // [-ZERO] Feature doesn't exist in 1.x.
+    WorldPacket data(SMSG_SET_EXTRA_AURA_INFO_NEED_UPDATE, (8 + 1 + 4 + 4 + 4));
+    data << m_target->GetPackGUID();
+    data << uint8(GetAuraSlot());
+    data << uint32(GetId());
+    data << uint32(GetAuraMaxDuration());                   // full
+    data << uint32(GetAuraDuration());                      // remain
+    caster->GetSession()->SendPacket(&data);
 }
