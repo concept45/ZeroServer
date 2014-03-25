@@ -1628,6 +1628,12 @@ void Spell::EffectHeal(SpellEffectIndex /*eff_idx*/)
 
         int32 addhealth = damage;
 
+        if (caster->HasAura(23401))
+            caster->CastSpell(unitTarget, 23402, true);
+
+        if (m_spellInfo->Id == 23783)
+            addhealth = int32(m_caster->GetMaxHealth() * 0.15);
+
         // Swiftmend - consumes Regrowth or Rejuvenation
         if (m_spellInfo->Id == 18562)
         {
