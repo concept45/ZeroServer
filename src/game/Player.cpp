@@ -4567,7 +4567,8 @@ uint32 Player::GetShieldBlockValue() const
 float Player::GetMeleeCritFromAgility()
 {
     // from mangos 3462 for 1.12
-    float val = 0.0f, classrate = 0.0f;
+    float val = 0.0f, classrate = 0.0f, LevelFactor = 0.0f, fg = 0.0f;
+
     // critical
     switch (getClass())
     {
@@ -4583,24 +4584,31 @@ float Player::GetMeleeCritFromAgility()
         default:            classrate = 20.0f; break;
     }
 
-    val = GetStat(STAT_AGILITY) / classrate;
+    fg = (0.35f * (float)(getLevel()))+5.55f;
+    LevelFactor = 106.20f / fg - 3;
+
+    //LevelFactor = 1 for lvl 60 chars
+    val = LevelFactor * (GetStat(STAT_AGILITY)/classrate);
+
     return val;
 }
 
 float Player::GetDodgeFromAgility()
 {
     // from mangos 3462 for 1.12
-    float val = 0, classrate = 0;
+    float val = 0, classrate = 0, LevelRate = 0;
 
     // dodge
+    //LevelRate = 1 for lvl 60 chars
+    LevelRate = ((16.225f/((0.45f*(float)(getLevel()))+2.5f))-0.1f)/0.45f;
     if (getClass() == CLASS_HUNTER) classrate = 26.5;
     else if (getClass() == CLASS_ROGUE)  classrate = 14.5;
     else classrate = 20;
     ///*+(Defense*0,04);
     if (getRace() == RACE_NIGHTELF)
-        val = GetStat(STAT_AGILITY) / classrate + 1;
+        val = LevelRate * (GetStat(STAT_AGILITY)/classrate) + 1;
     else
-        val = GetStat(STAT_AGILITY) / classrate;
+        val = LevelRate * (GetStat(STAT_AGILITY)/classrate);
 
     return val;
 
