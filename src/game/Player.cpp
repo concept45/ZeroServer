@@ -4587,7 +4587,7 @@ float Player::GetMeleeCritFromAgility()
     fg = (0.35f * (float)(getLevel()))+5.55f;
     LevelFactor = 106.20f / fg - 3;
 
-    //LevelFactor = 1 for lvl 60 chars
+    // LevelFactor = 1 for lvl 60 chars
     val = LevelFactor * (GetStat(STAT_AGILITY)/classrate);
 
     return val;
@@ -4599,7 +4599,7 @@ float Player::GetDodgeFromAgility()
     float val = 0, classrate = 0, LevelRate = 0;
 
     // dodge
-    //LevelRate = 1 for lvl 60 chars
+    // LevelRate = 1 for lvl 60 chars
     LevelRate = ((16.225f/((0.45f*(float)(getLevel()))+2.5f))-0.1f)/0.45f;
     if (getClass() == CLASS_HUNTER) classrate = 26.5;
     else if (getClass() == CLASS_ROGUE)  classrate = 14.5;

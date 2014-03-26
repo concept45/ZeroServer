@@ -287,7 +287,7 @@ void Player::UpdateAttackPowerAndDamage(bool ranged)
                     case FORM_DIREBEAR:
                         val2 = getLevel() * mLevelMult + GetStat(STAT_STRENGTH) * 2.0f - 20.0f; break;
                     case FORM_MOONKIN:
-                        val2 = getLevel() * (mLevelMult + 1.5f) + GetStat(STAT_STRENGTH) * 2.0f - 20.0f; break;
+                        val2 = getLevel() * mLevelMult + GetStat(STAT_STRENGTH) * 2.0f - 20.0f; break;
                     default:
                         val2 = GetStat(STAT_STRENGTH) * 2.0f - 20.0f; break;
                 }
