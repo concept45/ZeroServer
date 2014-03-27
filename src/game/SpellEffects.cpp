@@ -492,6 +492,18 @@ void Spell::EffectDummy(SpellEffectIndex eff_idx)
                     m_caster->CastSpell(unitTarget, spell_id, true, NULL);
                     return;
                 }
+                case 13280:                                 // Gnomish Death Ray
+                {
+                    if (!unitTarget)
+                        return;
+
+                    if (roll_chance_i(15))
+                        m_caster->CastSpell(m_caster, 13493, true);
+                    else
+                        m_caster->CastSpell(unitTarget, 13279, true);
+
+                      return;
+                }
                 case 13535:                                 // Tame Beast
                 {
                     if (!m_originalCaster || m_originalCaster->GetTypeId() != TYPEID_PLAYER)
