@@ -24,6 +24,7 @@ include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}/BattleGround
   ${CMAKE_CURRENT_SOURCE_DIR}/LuaEngine
   ${CMAKE_CURRENT_SOURCE_DIR}/OutdoorPvP
+  ${CMAKE_CURRENT_SOURCE_DIR}/Warden
   ${CMAKE_SOURCE_DIR}/dep/include/g3dlite
   ${CMAKE_SOURCE_DIR}/dep/recastnavigation/Detour
   ${CMAKE_SOURCE_DIR}/dep/recastnavigation/
@@ -226,6 +227,19 @@ set(SRC_GRP_OUTDOOR_PVP
     OutdoorPvP/OutdoorPvPSI.h
 )
 
+set(SRC_GRP_WARDEN
+    Warden/WardenBase.cpp
+    Warden/WardenBase.h
+    Warden/WardenDataStorage.cpp
+    Warden/WardenDataStorage.h
+    Warden/WardenMac.cpp
+    Warden/WardenMac.h
+    Warden/WardenModuleMac.h
+    Warden/WardenModuleWin.h
+    Warden/WardenWin.cpp
+    Warden/WardenWin.h
+)
+
 set(SRC_GRP_REFERENCES
     FollowerReference.cpp
     FollowerReference.h
@@ -401,6 +415,7 @@ set(LIBRARY_SRCS
     ${SRC_GRP_MOVEMENT}
     ${SRC_GRP_OBJECT}
     ${SRC_GRP_OUTDOOR_PVP}
+    ${SRC_GRP_WARDEN}
     ${SRC_GRP_REFERENCES}
     ${SRC_GRP_SERVER}
     ${SRC_GRP_TOOL}
@@ -448,6 +463,11 @@ source_group("Object"
 source_group("Outdoor PvP"
   FILES
     ${SRC_GRP_OUTDOOR_PVP}
+)
+
+source_group("Warden"
+  FILES
+    ${SRC_GRP_WARDEN}
 )
 
 source_group("References"
