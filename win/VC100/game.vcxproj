@@ -175,6 +175,7 @@
     </Lib>
     <PostBuildEvent>
       <Command>XCOPY "..\..\contrib\lua_scripts\*" "..\..\bin\$(Platform)_$(Configuration)/lua_scripts" /E /I /F /Y
+               XCOPY "..\..\src\game\LuaEngine\extensions" "..\..\bin\$(Platform)_$(Configuration)/lua_scripts\extensions" /E /I /F /Y
                copy ..\..\src\game\AuctionHouseBot\ahbot.conf.dist.in ..\..\bin\$(Platform)_$(Configuration)
                copy ..\..\src\game\playerbot\playerbot.conf.dist.in ..\..\bin\$(Platform)_$(Configuration)</Command>
     </PostBuildEvent>
@@ -214,6 +215,7 @@
     </Lib>
     <PostBuildEvent>
       <Command>XCOPY "..\..\contrib\lua_scripts\*" "..\..\bin\$(Platform)_$(Configuration)/lua_scripts" /E /I /F /Y
+               XCOPY "..\..\src\game\LuaEngine\extensions" "..\..\bin\$(Platform)_$(Configuration)/lua_scripts\extensions" /E /I /F /Y
                copy ..\..\src\game\AuctionHouseBot\ahbot.conf.dist.in ..\..\bin\$(Platform)_$(Configuration)
                copy ..\..\src\game\playerbot\playerbot.conf.dist.in ..\..\bin\$(Platform)_$(Configuration)</Command>
     </PostBuildEvent>
@@ -249,6 +251,7 @@
     </Lib>
     <PostBuildEvent>
       <Command>XCOPY "..\..\contrib\lua_scripts\*" "..\..\bin\$(Platform)_$(Configuration)/lua_scripts" /E /I /F /Y
+               XCOPY "..\..\src\game\LuaEngine\extensions" "..\..\bin\$(Platform)_$(Configuration)/lua_scripts\extensions" /E /I /F /Y
                copy ..\..\src\game\AuctionHouseBot\ahbot.conf.dist.in ..\..\bin\$(Platform)_$(Configuration)
                copy ..\..\src\game\playerbot\playerbot.conf.dist.in ..\..\bin\$(Platform)_$(Configuration)</Command>
     </PostBuildEvent>
@@ -288,6 +291,7 @@
     </Lib>
     <PostBuildEvent>
       <Command>XCOPY "..\..\contrib\lua_scripts\*" "..\..\bin\$(Platform)_$(Configuration)/lua_scripts" /E /I /F /Y
+               XCOPY "..\..\src\game\LuaEngine\extensions" "..\..\bin\$(Platform)_$(Configuration)/lua_scripts\extensions" /E /I /F /Y
                copy ..\..\src\game\AuctionHouseBot\ahbot.conf.dist.in ..\..\bin\$(Platform)_$(Configuration)
                copy ..\..\src\game\playerbot\playerbot.conf.dist.in ..\..\bin\$(Platform)_$(Configuration)</Command>
     </PostBuildEvent>
@@ -323,6 +327,7 @@
     </Lib>
     <PostBuildEvent>
       <Command>XCOPY "..\..\contrib\lua_scripts\*" "..\..\bin\$(Platform)_$(Configuration)/lua_scripts" /E /I /F /Y
+               XCOPY "..\..\src\game\LuaEngine\extensions" "..\..\bin\$(Platform)_$(Configuration)/lua_scripts\extensions" /E /I /F /Y
                copy ..\..\src\game\AuctionHouseBot\ahbot.conf.dist.in ..\..\bin\$(Platform)_$(Configuration)
                copy ..\..\src\game\playerbot\playerbot.conf.dist.in ..\..\bin\$(Platform)_$(Configuration)</Command>
     </PostBuildEvent>
@@ -362,6 +367,7 @@
     </Lib>
     <PostBuildEvent>
       <Command>XCOPY "..\..\contrib\lua_scripts\*" "..\..\bin\$(Platform)_$(Configuration)/lua_scripts" /E /I /F /Y
+               XCOPY "..\..\src\game\LuaEngine\extensions" "..\..\bin\$(Platform)_$(Configuration)/lua_scripts\extensions" /E /I /F /Y
                copy ..\..\src\game\AuctionHouseBot\ahbot.conf.dist.in ..\..\bin\$(Platform)_$(Configuration)
                copy ..\..\src\game\playerbot\playerbot.conf.dist.in ..\..\bin\$(Platform)_$(Configuration)</Command>
     </PostBuildEvent>

@@ -554,3 +554,4 @@ if(PCH)
 endif()
 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/playerbot/playerbot.conf.dist.in DESTINATION ${CONF_DIR} RENAME playerbot.conf.dist)
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/LuaEngine/extensions DESTINATION ${BIN_DIR}/lua_scripts/)
