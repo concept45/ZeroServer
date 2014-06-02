@@ -49,7 +49,6 @@
 #include "CellImpl.h"
 #include "movement/MoveSplineInit.h"
 #include "CreatureLinkingMgr.h"
-#include "LuaEngine.h"
 
 // apply implementation of the singletons
 #include "Policies/Singleton.h"
@@ -160,8 +159,6 @@ Creature::Creature(CreatureSubtype subtype) : Unit(),
 
 Creature::~Creature()
 {
-    Eluna::RemoveRef(this);
-
     CleanupsBeforeDelete();
 
     m_vendorItemCounts.clear();
