@@ -39,7 +39,7 @@
 #include "Language.h"
 #include "Chat.h"
 #include "SpellMgr.h"
-#include "LuaEngine.h"
+#include "HookMgr.h"
 
 // config option SkipCinematics supported values
 enum CinematicsSkipMode
@@ -360,7 +360,7 @@ void WorldSession::HandleCharCreateOpcode(WorldPacket& recv_data)
     sLog.outChar("Account: %d (IP: %s) Create Character:[%s] (guid: %u)", GetAccountId(), IP_str.c_str(), name.c_str(), pNewChar->GetGUIDLow());
 
     // used by eluna
-    sEluna->OnCreate(pNewChar);
+    sHookMgr->OnCreate(pNewChar);
 
     delete pNewChar;                                        // created only to call SaveToDB()
 }
@@ -406,7 +406,7 @@ void WorldSession::HandleCharDeleteOpcode(WorldPacket& recv_data)
     sLog.outChar("Account: %d (IP: %s) Delete Character:[%s] (guid: %u)", GetAccountId(), IP_str.c_str(), name.c_str(), lowguid);
 
     // used by eluna
-    sEluna->OnDelete(lowguid);
+    sHookMgr->OnDelete(lowguid);
 
     if (sLog.IsOutCharDump())                               // optimize GetPlayerDump call
     {
@@ -645,7 +645,7 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder* holder)
 
     // used by eluna
     if (pCurrChar->HasAtLoginFlag(AT_LOGIN_FIRST))
-        sEluna->OnFirstLogin(pCurrChar);
+        sHookMgr->OnFirstLogin(pCurrChar);
 
     if (pCurrChar->HasAtLoginFlag(AT_LOGIN_FIRST))
         pCurrChar->RemoveAtLoginFlag(AT_LOGIN_FIRST);
@@ -678,7 +678,7 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder* holder)
     m_playerLoading = false;
 
     // used by eluna
-    sEluna->OnLogin(pCurrChar);
+    sHookMgr->OnLogin(pCurrChar);
 
     delete holder;
 }
