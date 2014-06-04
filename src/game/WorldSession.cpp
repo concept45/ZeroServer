@@ -39,7 +39,7 @@
 #include "SocialMgr.h"
 #include "WardenWin.h"
 #include "WardenMac.h"
-#include "HookMgr.h"
+#include "LuaEngine.h"
 
 // select opcodes appropriate for processing in Map::Update context for current session state
 static bool MapSessionFilterHelper(WorldSession* session, OpcodeHandler const& opHandle)
@@ -472,7 +472,7 @@ void WorldSession::LogoutPlayer(bool Save)
         sSocialMgr.RemovePlayerSocial(_player->GetGUIDLow());
 
         ///- used by eluna
-        sHookMgr->OnLogout(_player);
+        sEluna->OnLogout(_player);
 
         ///- Remove the player from the world
         // the player may not be in the world when logging out
@@ -719,7 +719,7 @@ void WorldSession::InitWarden(BigNumber *K, std::string os)
 
 void WorldSession::ExecuteOpcode(OpcodeHandler const& opHandle, WorldPacket* packet)
 {
-    if (!sHookMgr->OnPacketReceive(this, *packet))
+    if (!sEluna->OnPacketReceive(this, *packet))
         return;
     // need prevent do internal far teleports in handlers because some handlers do lot steps
     // or call code that can do far teleports in some conditions unexpectedly for generic way work code
